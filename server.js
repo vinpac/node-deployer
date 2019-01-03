@@ -18,7 +18,7 @@ server.get(`${urlPrefix}/ping`, (req, res) => {
   res.send('PONG')
 })
 
-const secret = process.NODE_ENV.SECRET
+const secret = process.env.SECRET
 
 if (!secret) {
   throw new Error("Missing environment's variable SECRET")
