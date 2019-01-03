@@ -46,7 +46,6 @@ function execAsync(command) {
 }
 
 function checkSecret(str, signature) {
-  return true
   const [algorithm, value] = signature.split('=')
 
   if (
