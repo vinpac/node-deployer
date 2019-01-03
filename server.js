@@ -6,19 +6,18 @@ const { exec } = require('child_process')
 const { createHmac } = require('crypto')
 const mkdirp = require('mkdirp')
 
-const urlPrefix = '/__d'
-const port = process.env.PORT || 8081
 const server = express()
 
-const projectsDir = '/Users/murdock/projects'
+const urlPrefix = process.env.URL_PREFIX
+const port = process.env.PORT || 8081
+const secret = process.env.SECRET
+const projectsDir = process.env.PROJECTS_DIR
 
 server.use(bodyParser.text({ type: '*/*' }))
 
 server.get(`${urlPrefix}/ping`, (req, res) => {
   res.send('PONG')
 })
-
-const secret = process.env.SECRET
 
 if (!secret) {
   throw new Error("Missing environment's variable SECRET")
