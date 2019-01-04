@@ -8,7 +8,7 @@ const mkdirp = require('mkdirp')
 
 const server = express()
 
-const urlPrefix = process.env.URL_PREFIX
+const urlPrefix = process.env.URL_PREFIX || ''
 const port = process.env.PORT || 8081
 const secret = process.env.SECRET
 const projectsDir = process.env.PROJECTS_DIR
